@@ -1,0 +1,1 @@
+dotnet publish ServerManager.csproj -c Release -o publish
