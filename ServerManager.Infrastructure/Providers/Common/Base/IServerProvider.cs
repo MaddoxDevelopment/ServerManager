@@ -10,6 +10,6 @@ namespace ServerManager.Infastructure.Providers.Common.Base
         Task<Device> Deploy(AddDeviceRequest request);
         Task<IEnumerable<Facility>> GetFacilities();
         Task<IEnumerable<string>> GetOperatingSystems();
-        Task<IEnumerable<string>> GetPlans();
+        Task<IEnumerable<Plan>> GetPlans(Facility facility);
     }
 }

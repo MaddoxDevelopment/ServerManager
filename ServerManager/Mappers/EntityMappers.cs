@@ -10,6 +10,10 @@ namespace ServerManager.Mappers
         {
             TinyMapper.Bind<PacketDevice, Device>();
             TinyMapper.Bind<PacketFacility, Facility>();
+            TinyMapper.Bind<PacketPlan, Plan>(config =>
+            {
+               config.Ignore(w => w.Spec);
+            });
         }
     }
 }

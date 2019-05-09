@@ -14,14 +14,13 @@ namespace ServerManager.Infastructure.Providers.Packet.Entities
         [JsonProperty("id")] public string Id { get; set; }
 
         [JsonProperty("name")] public string Name { get; set; }
-
         [JsonProperty("code")] public string Code { get; set; }
 
-        [JsonProperty("features")] public IEnumerable<string> Features { get; set; }
+        [JsonProperty("features")] public IEnumerable<string> Features { get; set; } = new List<string>();
 
         [JsonProperty("address")] public Address Address { get; set; }
 
-        [JsonProperty("ip_ranges")] public IEnumerable<string> IpRanges { get; set; }
+        [JsonProperty("ip_ranges")] public IEnumerable<string> IpRanges { get; set; } = new List<string>();
     }
 
     public class Address

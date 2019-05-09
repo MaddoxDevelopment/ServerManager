@@ -21,5 +21,10 @@ namespace ServerManager.Controllers
         {
             return Ok(await _facility.GetFacilities(provider));
         }
+        
+        public async Task<ActionResult<IEnumerable<Facility>>> Plans([FromQuery] ServerProvider provider, string facility)
+        {
+            return Ok(await _facility.GetPlans(provider, new Facility { Code = facility }));
+        }
     }
 }

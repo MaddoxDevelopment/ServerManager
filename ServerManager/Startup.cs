@@ -55,10 +55,10 @@ namespace ServerManager
                 {
                     case ServerProvider.Packet:
                         return new ApiConfigProvider(Configuration.GetValue<string>("Packet:Token"), 
-                            Configuration.GetValue<string>("Packet:BaseUrl"));
+                            Configuration.GetValue<string>("Packet:BaseUrl"), Configuration.GetValue<string>("Packet:Project"));
                     case ServerProvider.DigitalOcean:
                         return new ApiConfigProvider(Configuration.GetValue<string>("DigitalOcean:Token"), 
-                            Configuration.GetValue<string>("DigitalOcean:BaseUrl"));
+                            Configuration.GetValue<string>("DigitalOcean:BaseUrl"), Configuration.GetValue<string>("DigitalOcean:Project"));
                     default:
                         throw new ArgumentOutOfRangeException(nameof(provider), provider, null);
                 }

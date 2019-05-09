@@ -16,13 +16,14 @@ namespace ServerManager.Infastructure.Providers.Packet
     public class PacketService : IPacketService
     {
         private readonly HttpClient _client;
-        
+        private readonly ApiConfigProvider _config;
+
         public PacketService(Func<ServerProvider, ApiConfigProvider> provider, IHttpClientFactory factory)
         {
-            var config = provider(ServerProvider.Packet);
+            _config = provider(ServerProvider.Packet);
             _client = factory.CreateClient("Packet");
-            _client.DefaultRequestHeaders.Add("X-Auth-Token", config.Token);
-            _client.BaseAddress = new Uri(config.BaseUrl);
+            _client.DefaultRequestHeaders.Add("X-Auth-Token", _config.Token);
+            _client.BaseAddress = new Uri(_config.BaseUrl);
         }
 
         public Task<Device> Deploy(AddDeviceRequest request)
@@ -32,7 +33,7 @@ namespace ServerManager.Infastructure.Providers.Packet
 
         public async Task<IEnumerable<Facility>> GetFacilities()
         {
-            var results = await _client.GetStringAsync("/facilities");
+            var results = await _client.GetStringAsync($"/projects/{_config.ProjectId}/facilities");
             var facilities = JsonConvert.DeserializeObject<PacketFacilities>(results);
             return facilities.Facilities.Select(w => TinyMapper.Map<PacketFacility, Facility>(w));
         }
@@ -42,9 +43,16 @@ namespace ServerManager.Infastructure.Providers.Packet
             throw new System.NotImplementedException();
         }
 
-        public Task<IEnumerable<string>> GetPlans()
+        public async Task<IEnumerable<Plan>> GetPlans(Facility facility)
         {
-            throw new System.NotImplementedException();
+            var results = await _client.GetStringAsync($"/projects/{_config.ProjectId}/plans?include=available_in");
+            var plans = JsonConvert.DeserializeObject<PacketPlans>(results);
+            return plans.Plans.Where(w => w.AvailableIn.Select(a => a.Code).Contains(facility.Code)).Select(w =>
+            {
+                var mapped = TinyMapper.Map<PacketPlan, Plan>(w);
+                mapped.Spec = w.Spec;
+                return w;
+            });
         }
     }
 }

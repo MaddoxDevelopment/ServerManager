@@ -7,5 +7,6 @@ namespace ServerManager.Services.Facilities.Base
     public interface IFacilityService
     {
         Task<IEnumerable<Facility>> GetFacilities(ServerProvider provider);
+        Task<IEnumerable<Plan>> GetPlans(ServerProvider provider, Facility facility);
     }
 }

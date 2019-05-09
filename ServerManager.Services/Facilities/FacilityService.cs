@@ -20,5 +20,10 @@ namespace ServerManager.Services.Facilities
         {
             return await _accessor(provider).GetFacilities();
         }
+
+        public async Task<IEnumerable<Plan>> GetPlans(ServerProvider provider, Facility facility)
+        {
+            return await _accessor(provider).GetPlans(facility);
+        }
     }
 }
