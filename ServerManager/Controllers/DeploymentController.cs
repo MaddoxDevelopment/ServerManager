@@ -38,5 +38,12 @@ namespace ServerManager.Controllers
             var device = await _deployment.GetDevices(provider);
             return Ok(device);
         }
+        
+        [HttpDelete]
+        public async Task<ActionResult<Device>> Remove([FromQuery] ServerProvider provider, string deviceId)
+        {
+            await _deployment.DeleteDevice(provider, new Device { Id = deviceId });
+            return NoContent();
+        }
     }
 }

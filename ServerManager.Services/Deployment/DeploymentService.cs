@@ -33,5 +33,10 @@ namespace ServerManager.Services.Deployment
         {
             return await _accessor(provider).GetDevices();
         }
+
+        public async Task DeleteDevice(ServerProvider provider, Device device)
+        {
+            await _accessor(provider).DeleteDevice(device);
+        }
     }
 }

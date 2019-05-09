@@ -19,6 +19,11 @@ namespace ServerManager.Infastructure.Providers.DigitalOcean
             throw new System.NotImplementedException();
         }
 
+        public Task DeleteDevice(Device device)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Task<IEnumerable<Facility>> GetFacilities()
         {
             throw new System.NotImplementedException();

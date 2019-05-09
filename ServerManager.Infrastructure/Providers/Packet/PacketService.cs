@@ -57,6 +57,13 @@ namespace ServerManager.Infastructure.Providers.Packet
             });
         }
 
+        public async Task DeleteDevice(Device device)
+        {
+            var id = device is PacketDevice cast ? cast.Id : device.Id;
+            var results = await _client.DeleteAsync($"/devices/{id}");
+            await HttpExtensions.SuccessOrThrow<object>(results);
+        }
+
         public async Task<IEnumerable<Facility>> GetFacilities()
         {
             var results = await _client.GetAsync($"/projects/{_config.ProjectId}/facilities");

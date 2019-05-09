@@ -8,7 +8,7 @@ namespace ServerManager.Infastructure.Utility
 {
     public static class HttpExtensions
     {
-        public static async Task<T> SuccessOrThrow<T>(HttpResponseMessage message, Func<string, T> response)
+        public static async Task<T> SuccessOrThrow<T>(HttpResponseMessage message, Func<string, T> response = null)
         {
             try
             {
@@ -18,8 +18,8 @@ namespace ServerManager.Infastructure.Utility
                 {
                     throw new ProviderApiException(content);
                 }
-                
-                return response(content);
+
+                return response != null ? response(content) : default(T);
             }
             catch (Exception e)
             {
