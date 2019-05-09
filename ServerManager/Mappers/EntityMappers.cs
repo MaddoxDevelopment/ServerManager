@@ -12,6 +12,7 @@ namespace ServerManager.Mappers
             TinyMapper.Bind<PacketFacility, Facility>();
             TinyMapper.Bind<PacketPlan, Plan>(config =>
             {
+                // Couldn't get this to map properly with reflection so just ignore it and set it manually.
                config.Ignore(w => w.Spec);
             });
         }

@@ -45,9 +45,11 @@ namespace ServerManager.Infastructure.Providers.Packet
 
         public async Task<IEnumerable<Plan>> GetPlans(Facility facility)
         {
+            var cast = facility as PacketFacility;
             var results = await _client.GetStringAsync($"/projects/{_config.ProjectId}/plans?include=available_in");
             var plans = JsonConvert.DeserializeObject<PacketPlans>(results);
-            return plans.Plans.Where(w => w.AvailableIn.Select(a => a.Code).Contains(facility.Code)).Select(w =>
+            // TODO make more performant. Packet plan api does not let you filter based on facility in the query, so we must do in memory.
+            return plans.Plans.Where(w => w.AvailableIn.Select(a => a.Code).Any(a => a == cast.Code)).Select(w =>
             {
                 var mapped = TinyMapper.Map<PacketPlan, Plan>(w);
                 mapped.Spec = w.Spec;
