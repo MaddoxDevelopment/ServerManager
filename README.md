@@ -58,7 +58,7 @@ you may provision with.
 ```
 Save that slug for the next step.
 
-4) Send a POST request to /api/deployment/deployRandom?provider=packet with the following json body to deploy a device.
+4) Send a POST request to /api/deployment/deploy?provider=packet with the following json body to deploy a device.
 
 ```
 {
