@@ -6,7 +6,7 @@ using ServerManager.Services.Deployment.Base;
 
 namespace ServerManager.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class DeploymentController : ControllerBase
     {

@@ -13,7 +13,7 @@ namespace ServerManager.Infastructure.Providers.DigitalOcean
             throw new System.NotImplementedException();
         }
 
-        public Task<IEnumerable<string>> GetLocations()
+        public Task<IEnumerable<Facility>> GetFacilities()
         {
             throw new System.NotImplementedException();
         }
