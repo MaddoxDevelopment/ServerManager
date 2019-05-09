@@ -1,4 +1,4 @@
-using ServerManager.Infastructure.Providers.Common.Base;
+using ServerManager.Infastructure.Common.Base;
 
 namespace ServerManager.Infastructure.Providers.DigitalOcean.Base
 {
