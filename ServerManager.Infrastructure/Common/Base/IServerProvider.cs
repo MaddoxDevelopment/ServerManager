@@ -9,6 +9,7 @@ namespace ServerManager.Infastructure.Common.Base
     public interface IServerProvider
     {
         Task<Device> Deploy(AddDeviceRequest request);
+        Task<IEnumerable<Device>> GetDevices();
         Task<IEnumerable<Facility>> GetFacilities();
         Task<IEnumerable<OperatingSystem>> GetOperatingSystems(Plan plan);
         Task<IEnumerable<Plan>> GetPlans(Facility facility);

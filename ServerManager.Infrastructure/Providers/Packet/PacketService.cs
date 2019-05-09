@@ -47,6 +47,16 @@ namespace ServerManager.Infastructure.Providers.Packet
             });
         }
 
+        public async Task<IEnumerable<Device>> GetDevices()
+        {
+            var results = await _client.GetAsync($"/projects/{_config.ProjectId}/devices");
+            return await HttpExtensions.SuccessOrThrow(results, data =>
+            {
+                var devices = JsonConvert.DeserializeObject<PacketDevices>(data);
+                return devices.Devices.Select(w => TinyMapper.Map<PacketDevice, Device>(w));
+            });
+        }
+
         public async Task<IEnumerable<Facility>> GetFacilities()
         {
             var results = await _client.GetAsync($"/projects/{_config.ProjectId}/facilities");

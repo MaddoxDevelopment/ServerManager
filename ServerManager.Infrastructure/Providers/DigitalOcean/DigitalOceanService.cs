@@ -14,6 +14,11 @@ namespace ServerManager.Infastructure.Providers.DigitalOcean
             throw new System.NotImplementedException();
         }
 
+        public Task<IEnumerable<Device>> GetDevices()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Task<IEnumerable<Facility>> GetFacilities()
         {
             throw new System.NotImplementedException();

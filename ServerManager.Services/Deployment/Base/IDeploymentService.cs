@@ -10,5 +10,6 @@ namespace ServerManager.Services.Deployment.Base
     {
         Task<Device> Deploy(AddDeviceRequest request);
         Task<IEnumerable<OperatingSystem>> GetOperatingSystems(ServerProvider provider, Plan plan);
+        Task<IEnumerable<Device>> GetDevices(ServerProvider provider);
     }
 }

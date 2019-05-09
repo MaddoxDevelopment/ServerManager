@@ -28,5 +28,10 @@ namespace ServerManager.Services.Deployment
         {
             return await _accessor(provider).GetOperatingSystems(plan);
         }
+
+        public async Task<IEnumerable<Device>> GetDevices(ServerProvider provider)
+        {
+            return await _accessor(provider).GetDevices();
+        }
     }
 }

@@ -31,5 +31,12 @@ namespace ServerManager.Controllers
             var device = await _deployment.Deploy(request);
             return Ok(device);
         }
+        
+        [HttpGet]
+        public async Task<ActionResult<Device>> Deployed([FromQuery] ServerProvider provider)
+        {
+            var device = await _deployment.GetDevices(provider);
+            return Ok(device);
+        }
     }
 }
