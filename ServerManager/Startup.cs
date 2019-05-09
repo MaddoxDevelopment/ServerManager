@@ -12,6 +12,7 @@ using ServerManager.Infastructure.Providers.DigitalOcean.Base;
 using ServerManager.Infastructure.Providers.Packet;
 using ServerManager.Infastructure.Providers.Packet.Base;
 using ServerManager.Mappers;
+using ServerManager.Pipeline;
 using ServerManager.Services.Deployment;
 using ServerManager.Services.Deployment.Base;
 using ServerManager.Services.Facilities;
@@ -73,6 +74,7 @@ namespace ServerManager
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             EntityMappers.Register();
+            app.UseMiddleware<ExceptionMiddleware>();
             app.UseMvc();
         }
     }

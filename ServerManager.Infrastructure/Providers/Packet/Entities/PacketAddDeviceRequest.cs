@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using ServerManager.Infastructure.Providers.Common.Contracts;
+using ServerManager.Infastructure.Common.Contracts;
 using ServerManager.Infastructure.Providers.Common.Entities;
 
 namespace ServerManager.Infastructure.Providers.Packet.Entities

@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using ServerManager.Infastructure.Common.Base;
-using ServerManager.Infastructure.Providers.Common.Contracts;
+using ServerManager.Infastructure.Common.Contracts;
 using ServerManager.Infastructure.Providers.Common.Entities;
 using ServerManager.Services.Deployment.Base;
 
