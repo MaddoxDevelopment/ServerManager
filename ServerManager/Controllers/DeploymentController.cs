@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ServerManager.Infastructure.Common.Contracts;
+using ServerManager.Infastructure.Common.Entities;
 using ServerManager.Infastructure.Providers.Common.Entities;
 using ServerManager.Services.Deployment.Base;
 
@@ -17,6 +18,13 @@ namespace ServerManager.Controllers
             _deployment = deployment;
         }
 
+        [HttpGet]
+        public async Task<ActionResult<Device>> OperatingSystems([FromQuery] ServerProvider provider, string plan)
+        {
+            var systems = await _deployment.GetOperatingSystems(provider, new Plan { Name = plan });
+            return Ok(systems);
+        }
+        
         [HttpPost]
         public async Task<ActionResult<Device>> Deploy([FromBody] AddDeviceRequest request)
         {

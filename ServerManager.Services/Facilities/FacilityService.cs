@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ServerManager.Infastructure.Common.Base;
+using ServerManager.Infastructure.Common.Entities;
 using ServerManager.Infastructure.Providers.Common.Entities;
 using ServerManager.Services.Facilities.Base;
 

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using ServerManager.Infastructure.Common.Entities;
 using ServerManager.Infastructure.Providers.Common.Entities;
 
 namespace ServerManager.Services.Facilities.Base

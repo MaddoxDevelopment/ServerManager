@@ -19,12 +19,14 @@ namespace ServerManager.Controllers
 
         public async Task<ActionResult<IEnumerable<Facility>>> List([FromQuery] ServerProvider provider)
         {
-            return Ok(await _facility.GetFacilities(provider));
+            var facilities = await _facility.GetFacilities(provider);
+            return Ok(facilities);
         }
         
         public async Task<ActionResult<IEnumerable<Facility>>> Plans([FromQuery] ServerProvider provider, string facility)
         {
-            return Ok(await _facility.GetPlans(provider, new Facility { Code = facility }));
+            var plans = await _facility.GetPlans(provider, new Facility {Code = facility});
+            return Ok(plans);
         }
     }
 }

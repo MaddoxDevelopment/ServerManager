@@ -5,23 +5,22 @@ namespace ServerManager.Infastructure.Common.Contracts
 {
     public class AddDeviceRequest
     {
-        [Required]
         public string ProjectId { get; set; }
         [Required]
-        public string Location { get; set; }
+        public string LocationId { get; set; }
         [Required]
-        public string Plan { get; set; }
+        public string PlanId { get; set; }
         [Required]
-        public string OperatingSystem { get; set; }
+        public string OperatingSystemId { get; set; }
         [Required]
         public ServerProvider Provider { get; set; }
 
-        public AddDeviceRequest(string projectId, string location, string plan, string operatingSystem, ServerProvider provider)
+        public AddDeviceRequest(string projectId, string locationId, string planId, string operatingSystemId, ServerProvider provider)
         {
             ProjectId = projectId;
-            Location = location;
-            Plan = plan;
-            OperatingSystem = operatingSystem;
+            LocationId = locationId;
+            PlanId = planId;
+            OperatingSystemId = operatingSystemId;
             Provider = provider;
         }
 

@@ -54,10 +54,16 @@ namespace ServerManager.Infastructure.Providers.Packet.Entities
 
         [JsonProperty("ip_addresses")] public List<IpAddress> IpAddresses { get; set; }
 
-        public PacketAddDeviceRequest(string projectId, string location, string plan, string operatingSystem) 
-            : base(projectId, location, plan, operatingSystem, ServerProvider.Packet)
+        public PacketAddDeviceRequest(string projectId, string locationId, string planId, string operatingSystemId) 
+            : base(projectId, locationId, planId, operatingSystemId, ServerProvider.Packet)
         {
         }
+        
+        public PacketAddDeviceRequest() 
+            : base(null, null, null, null, ServerProvider.Packet)
+        {
+        }       
+        
     }
 
     public class IpAddress

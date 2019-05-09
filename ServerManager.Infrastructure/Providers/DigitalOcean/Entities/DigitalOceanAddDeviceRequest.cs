@@ -5,8 +5,8 @@ namespace ServerManager.Infastructure.Providers.DigitalOcean.Entities
 {
     public class DigitalOceanAddDeviceRequest : AddDeviceRequest
     {
-        public DigitalOceanAddDeviceRequest(string projectId, string location, string plan, string operatingSystem) 
-            : base(projectId, location, plan, operatingSystem, ServerProvider.DigitalOcean)
+        public DigitalOceanAddDeviceRequest(string projectId, string locationId, string planId, string operatingSystemId) 
+            : base(projectId, locationId, planId, operatingSystemId, ServerProvider.DigitalOcean)
         {
         }
     }

@@ -1,4 +1,4 @@
-using ServerManager.Infastructure.Providers.Common.Entities;
+using ServerManager.Infastructure.Common.Entities;
 
 namespace ServerManager.Infastructure.Providers.DigitalOcean.Entities
 {

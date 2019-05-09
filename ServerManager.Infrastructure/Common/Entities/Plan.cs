@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using ServerManager.Infastructure.Providers.Packet.Entities;
 
-namespace ServerManager.Infastructure.Providers.Common.Entities
+namespace ServerManager.Infastructure.Common.Entities
 {
     public class Plan
     {
