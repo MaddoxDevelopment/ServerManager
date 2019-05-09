@@ -28,7 +28,7 @@ namespace ServerManager.Infastructure.Providers.Packet
 
         public Task<Device> Deploy(AddDeviceRequest request)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public async Task<IEnumerable<Facility>> GetFacilities()
